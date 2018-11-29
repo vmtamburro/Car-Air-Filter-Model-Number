@@ -1,11 +1,14 @@
 # depslib dependency file v1.0
-1543507882 source:e:\assignment 6\main.cpp
+1543509282 source:e:\assignment 6\main.cpp
 	<iostream>
 	<cstring>
+	"prototype.h"
+
+1543509666 source:e:\assignment 6\definitions.cpp
 	<iostream>
 	<cstring>
 
-1543507742 source:e:\assignment 6\definitions.cpp
+1543509338 e:\assignment 6\prototype.h
 	<iostream>
 	<cstring>
 
