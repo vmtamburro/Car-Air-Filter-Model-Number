@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1543507882 source:e:\assignment 6\main.cpp
+	<iostream>
+	<cstring>
+	<iostream>
+	<cstring>
+
+1543507742 source:e:\assignment 6\definitions.cpp
+	<iostream>
+	<cstring>
+
