@@ -1,9 +1,10 @@
 #include <iostream>
 #include <cstring>
+#include <cstdlib>
 #include "prototype.h"
 
 using namespace std;
-
+int yearOfMan;
 
 int main()
 {
@@ -17,6 +18,5 @@ int main()
         cout << "The filter you are looking for is #" <<filterType<< endl;
     else
         return 0;
-
 
 }

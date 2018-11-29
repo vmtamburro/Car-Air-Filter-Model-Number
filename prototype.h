@@ -3,14 +3,14 @@
 
 #include <iostream>
 #include <cstring>
+#include <cstdlib>
 
 using namespace std;
-
-void yearOfManufacture(char filterType[]);
-void numCylinderEdsel(char filterType[]);
-void numCylinderAustin(char filterType[]);
-void numCylinderCatepiller(char filterType[]);
-void numCylinderJaguar(char filterType[]);
+int yearOfManufacture(char filterType[]);
+int numCylinderEdsel(char filterType[]);
+int numCylinderAustin(char filterType[]);
+int numCylinderCatepiller(char filterType[]);
+int numCylinderJaguar(char filterType[]);
 bool mainMenu(char filterType[]);
 
 
