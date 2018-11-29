@@ -1,0 +1,2 @@
+# Car-Air-Filter-Model-Number
+This is a hypothetical program that I created for my CSE110 class. The object is to recreate a program found in the automotive section which tells the user what the model number of the proper air filter is for their specific car. The three pieces of the program are the make of the auto, the year manufactured, and the number of cylinders in the engine. Using a C-Style string and the strcat function in the &lt;cstring> class, I was able to create a unique Air Filter Model for each scenerio. 
