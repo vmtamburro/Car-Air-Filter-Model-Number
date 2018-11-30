@@ -10,13 +10,10 @@ int main()
 {
     const int SIZE = 6;
     char filterType[SIZE];
-    bool startProgram;
 
-    startProgram = mainMenu(filterType);
+    mainMenu(filterType);
 
-    if (startProgram == true)
-        cout << "The filter you are looking for is #" <<filterType<< endl;
-    else
-        return 0;
+
+    return 0;
 
 }
