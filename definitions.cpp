@@ -15,20 +15,19 @@ int yearOfManufacture(char filterType[])
     int year = 0;
     int index;
 
-
-    do
+    do//do while loop used to catch errors from user
     {
         index = 0;
 
         //get user input
-        cout << "Type a year of Manufacture from 1998-2018.\n";
-        cout << "To return to the Main Menu, type -1:  ";
+        cout << "To return to the Main Menu, type -1. \n";
+        cout << "Type a year of Manufacture from 1998-2018:  ";
         cin >> year;
 
 
         if (year == 1998){
-            strcat(filterType, "98");
-            index++;
+            strcat(filterType, "98");//write to string
+            index++;//increment index to break loop, as no user error has occurred
             }
         else if (year == 1999){
             strcat(filterType, "99");
@@ -116,8 +115,8 @@ int yearOfManufacture(char filterType[])
             index++;
             mainMenu(filterType);
         }
-        //Exception to catch user errors.
-        else{
+
+        else{ //Exception to catch user errors
             system("cls");
             cout << "Error, please enter a year between 1998 and 2018. \n"<<endl;
         }
@@ -127,22 +126,23 @@ int yearOfManufacture(char filterType[])
 }
 
 //Function to get the number of Cylinders from the user and write the info
-//to the c string
+//to the C-String
 int numCylinderEdsel(char filterType[])
 {
     system("cls");
-    int index = 0;
+    int index = 0; //Index used to catch user errors
     int numCylinders;
 
     do
     {
-        cout << "Enter the number of Cylinders of your Model.(6 or 8) ";
-        cout << "To return to the Main Menu, type -1:  ";
-        cin >> numCylinders;
+        //display prompt
+        cout << "To return to the Main Menu, type -1. \n";
+        cout << "Enter the number of Cylinders of your Model.(6 or 8):  ";
+        cin >> numCylinders; //user input
 
         if (numCylinders == 6){
-            strcat(filterType, "06");
-            index++;
+            strcat(filterType, "06");//adding cylinder type to the C-String
+            index++;//increment to break loop
         }
         else if (numCylinders == 8){
             strcat(filterType, "08");
@@ -164,7 +164,9 @@ int numCylinderEdsel(char filterType[])
 
 }
 
-int numCylinderAustin(char filterType[])
+//Function to get the number of Cylinders from the user and write the info
+//to the C-String
+int numCylinderAustin(char filterType[])//see comments for previous function
 {
     system("cls");
     int index;
@@ -173,8 +175,8 @@ int numCylinderAustin(char filterType[])
     do
     {
         index = 0;
-        cout << "Enter the number of Cylinders of your Model.(4 or 6) ";
-        cout << "To return to the Main Menu, type -1:  ";
+        cout << "To return to the Main Menu, type -1. \n";
+        cout << "Enter the number of Cylinders of your Model(4 or 6):  ";
         cin >> numCylinders;
 
         if (numCylinders == 4){
@@ -185,9 +187,9 @@ int numCylinderAustin(char filterType[])
             strcat(filterType, "06");
             index ++;
         }
-        else if (numCylinders == -1){
+        else if (numCylinders == -1){//Used to return to the Main Menu
             index++;
-            mainMenu(filterType);
+            mainMenu(filterType); //Main Menu Function
         }
         else
         {
@@ -198,7 +200,9 @@ int numCylinderAustin(char filterType[])
     return numCylinders;
 }
 
-int numCylinderCatepiller(char filterType[])
+//Function to get the number of Cylinders from the user and write the info
+//to the C-String
+int numCylinderCatepiller(char filterType[])//see comments for previous function
 {
     system("cls");
     int index;
@@ -207,8 +211,8 @@ int numCylinderCatepiller(char filterType[])
     do
     {
         index = 0;
-        cout << "Enter the number of Cylinders of your Model.(15 or 20) ";
-        cout << "To return to the Main Menu, type -1:  ";
+        cout << "To return to the Main Menu, type -1. \n";
+        cout << "Enter the number of Cylinders of your Model(15 or 20):  ";
         cin >> numCylinders;
 
         if (numCylinders == 15)
@@ -234,7 +238,9 @@ int numCylinderCatepiller(char filterType[])
     return numCylinders;
 }
 
-int numCylinderJaguar(char filterType[])
+//Function to get the number of Cylinders from the user and write the info
+//to the C-String
+int numCylinderJaguar(char filterType[])//see comments for previous function
 {
     system("cls");
     int index;
@@ -243,8 +249,8 @@ int numCylinderJaguar(char filterType[])
     do
     {
         index = 0;
-        cout << "Enter the number of Cylinders of your Model.(6 or 12)";
-        cout << "To return to the Main Menu, type -1:  ";
+        cout << "To return to the Main Menu, type -1. \n";
+        cout << "Enter the number of Cylinders of your Model(6 or 12):  ";
         cin >> numCylinders;
 
         if (numCylinders == 6){
@@ -267,6 +273,7 @@ int numCylinderJaguar(char filterType[])
     } while (index == 0);
     return numCylinders;
 }
+
 bool mainMenu(char filterType[])
 {
     int year;
@@ -277,47 +284,48 @@ bool mainMenu(char filterType[])
 
     while (index ==0)
     {
-        int choice;
-        const int EDSEL = 1,
+        int choice;//Declare user input
+        const int EDSEL = 1,//Declare constants for switch statement
                   AUSTIN = 2,
                   CATEPILLER = 3,
                   JAGUAR = 4,
                   QUIT = 5;
 
-        cout << "\tSelect the Make of your Vehicle\n\n"
+        cout << "\tSelect the Make of your Vehicle\n\n"//Display Menu
             << "1. Edsel \n"
             << "2. Austin \n"
             << "3. Catepiller \n"
             << "4. Jaguar \n"
             << "5. Quit \n\n";
         cout << "Enter your Choice: ";
-        cin >> choice;
+        cin >> choice;//User Input
 
         switch(choice)
         {
             case EDSEL:
-                index++;
+                index++;//To break loop because of accurate answer
                 filterType[0] = 'E';
                 filterType[1] = '\0';
-                year = yearOfManufacture(filterType);
+                year = yearOfManufacture(filterType);//Get data from year function
                     if (year == -1)
-                        break;
+                        break; //To break out of current statement, so as not to create a repetition after mainMenu(filterType) is reiterated.
                 numCylinders = numCylinderEdsel(filterType);
                     if (numCylinders == -1)
-                        break;
-                cout << "\n\nThe vehicle make that you selected was an Edsel, ";
+                        break;//To break out of current statement, so as not to create a repetition after mainMenu(filterType) is reiterated.
 
+                //Display results
+                cout << "\n\nThe vehicle make that you selected was an Edsel, ";
                 cout << "the year that you selected was " << year<< ",";
                 cout << "\nand the number of cylinders that you selected was " << numCylinders<<".";
                 cout << "\nThe filter you are looking for is #" <<filterType<<"\n\n";
-                ret = true;
+                ret = true; //to affect looping in int main()
                 break;
 
-            case AUSTIN:
+            case AUSTIN://See Comments for Previous Case
                 index++;
                 filterType[0] = 'A';
                 filterType[1] = '\0';
-                year = yearOfManufacture(filterType);//Get the Year of Manufacture
+                year = yearOfManufacture(filterType);
                     if (year == -1)
                         break;
                 numCylinders = numCylinderAustin(filterType);
@@ -327,9 +335,9 @@ bool mainMenu(char filterType[])
                 cout << "the year that you selected was " << year<< ",";
                 cout << "\nand the number of cylinders that you selected was " << numCylinders<<".";
                 cout << "\nThe filter you are looking for is #" <<filterType<<"\n\n";
+                ret = true;
                 break;
-
-            case CATEPILLER:
+            case CATEPILLER://See Comments for Previous Case
                 ret = true;
                 index++;
                 filterType[0] = 'C';
@@ -347,7 +355,7 @@ bool mainMenu(char filterType[])
                 ret = true;
                 break;
 
-            case JAGUAR:
+            case JAGUAR://See Comments for Previous Case
                 index++;
                 filterType[0] = 'J';
                 filterType[1] = '\0';
@@ -358,21 +366,21 @@ bool mainMenu(char filterType[])
                     if (numCylinders == -1)
                         break;
                 cout << "\n\nThe vehicle make that you selected was a Jaguar, ";
-                 cout << "the year that you selected was " << year<< ",";
+                cout << "the year that you selected was " << year<< ",";
                 cout << "\nand the number of cylinders that you selected was " << numCylinders<<".";
                 cout << "\nThe filter you are looking for is #" <<filterType<<"\n\n";
                 ret = true;
                 break;
 
             case QUIT:
-                index++;
+                index++;//incremented to escape current while loop
                 system("cls");
-                cout << "Program Quitting.";
-                ret = false;
-                return ret;
+                cout << "Program Quitting.";//Display quit statement to user
+                ret = false;//To affect loop in int main()
+                return ret;//end function
                 break;
 
-            default://no index increment
+                default://no index increment, current while loop will repeat.
                 system("cls");
                 cout << "Error, please select from choices 1-4.\n"<<endl;
                 break;

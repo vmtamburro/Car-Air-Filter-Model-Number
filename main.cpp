@@ -12,8 +12,9 @@ int main()
     char filterType[SIZE];
     bool ret = true;
 
-    while(ret == true)
-    {
+    //loop used to repeat unless quit is selected
+    //in mainMenu function.
+    while(ret == true){
         ret = mainMenu(filterType);
         if (ret == true)
             system("pause");
