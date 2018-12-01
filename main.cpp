@@ -10,10 +10,14 @@ int main()
 {
     const int SIZE = 6;
     char filterType[SIZE];
+    bool ret = true;
 
-    mainMenu(filterType);
-
+    while(ret == true)
+    {
+        ret = mainMenu(filterType);
+        if (ret == true)
+            system("pause");
+    }
 
     return 0;
-
 }
