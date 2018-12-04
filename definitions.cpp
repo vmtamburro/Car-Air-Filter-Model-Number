@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstring>
 #include <cstdlib>
+#include <limits>
+
 using namespace std;
 
 
@@ -23,7 +25,13 @@ int yearOfManufacture(char filterType[])
         cout << "To return to the Main Menu, type -1. \n";
         cout << "Type a year of Manufacture from 1998-2018:  ";
         cin >> year;
-
+        while(cin.fail())
+            {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Invalid entry. Enter a number: ";
+                cin >> year;
+            }
 
         if (year == 1998){
             strcat(filterType, "98");//write to string
@@ -139,6 +147,13 @@ int numCylinderEdsel(char filterType[])
         cout << "To return to the Main Menu, type -1. \n";
         cout << "Enter the number of Cylinders of your Model.(6 or 8):  ";
         cin >> numCylinders; //user input
+        while(cin.fail())
+            {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Invalid entry. Enter a number: ";
+                cin >> numCylinders;
+            }
 
         if (numCylinders == 6){
             strcat(filterType, "06");//adding cylinder type to the C-String
@@ -178,6 +193,13 @@ int numCylinderAustin(char filterType[])//see comments for previous function
         cout << "To return to the Main Menu, type -1. \n";
         cout << "Enter the number of Cylinders of your Model(4 or 6):  ";
         cin >> numCylinders;
+        while(cin.fail())
+            {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Invalid entry. Enter a number: ";
+                cin >> numCylinders;
+            }
 
         if (numCylinders == 4){
             strcat(filterType, "04");
@@ -214,6 +236,13 @@ int numCylinderCatepiller(char filterType[])//see comments for previous function
         cout << "To return to the Main Menu, type -1. \n";
         cout << "Enter the number of Cylinders of your Model(15 or 20):  ";
         cin >> numCylinders;
+        while(cin.fail())
+            {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Invalid entry. Enter a number: ";
+                cin >> numCylinders;
+            }
 
         if (numCylinders == 15)
         {
@@ -252,6 +281,13 @@ int numCylinderJaguar(char filterType[])//see comments for previous function
         cout << "To return to the Main Menu, type -1. \n";
         cout << "Enter the number of Cylinders of your Model(6 or 12):  ";
         cin >> numCylinders;
+        while(cin.fail())
+            {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Invalid entry. Enter a number: ";
+                cin >> numCylinders;
+            }
 
         if (numCylinders == 6){
             strcat(filterType, "06");
@@ -284,21 +320,31 @@ bool mainMenu(char filterType[])
 
     while (index ==0)
     {
-        int choice;//Declare user input
-        const int EDSEL = 1,//Declare constants for switch statement
-                  AUSTIN = 2,
-                  CATEPILLER = 3,
-                  JAGUAR = 4,
-                  QUIT = 5;
 
-        cout << "\tSelect the Make of your Vehicle\n\n"//Display Menu
-            << "1. Edsel \n"
-            << "2. Austin \n"
-            << "3. Catepiller \n"
-            << "4. Jaguar \n"
-            << "5. Quit \n\n";
-        cout << "Enter your Choice: ";
-        cin >> choice;//User Input
+            int choice;//Declare user input
+            const int EDSEL = 1,//Declare constants for switch statement
+                    AUSTIN = 2,
+                    CATEPILLER = 3,
+                    JAGUAR = 4,
+                    QUIT = 5;
+
+                cout << "\tSelect the Make of your Vehicle\n\n"//Display Menu
+                    << "1. Edsel \n"
+                    << "2. Austin \n"
+                    << "3. Catepiller \n"
+                    << "4. Jaguar \n"
+                    << "5. Quit \n\n";
+                cout << "Enter your Choice: ";
+
+                cin >> choice;//User Input
+                while(cin.fail())
+                {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "Invalid entry. Enter a number: ";
+                    cin >> choice;
+                }
+
 
         switch(choice)
         {
@@ -380,7 +426,7 @@ bool mainMenu(char filterType[])
                 return ret;//end function
                 break;
 
-                default://no index increment, current while loop will repeat.
+            default://no index increment, current while loop will repeat.
                 system("cls");
                 cout << "Error, please select from choices 1-4.\n"<<endl;
                 break;
