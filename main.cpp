@@ -14,8 +14,10 @@ int main()
 
     //loop used to repeat unless quit is selected
     //in mainMenu function.
-    while(ret == true){
+    while(ret == true)
+    {
         ret = mainMenu(filterType);
+
         if (ret == true)
             system("pause");
     }
